@@ -10,6 +10,7 @@ function AllCards () {
 
     const countries = [{country: 'USA', code: 'us'}, {country: 'England', code: 'gb'}, {country: 'Canada', code: 'ca'}];
 
+    // need to parse codes.csv and get country codes, then we can begin randomly generating cards
 
     useEffect(() => {        
         setCards(countries);
