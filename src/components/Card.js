@@ -3,8 +3,9 @@ function Card (props) {
     // Will convert this to bootstrap card
 
     const updateCardScore = (event) => {
+        let code = props.code
         event.preventDefault();
-        props.updateScore();
+        props.updateScore(code);
     }
 
 
