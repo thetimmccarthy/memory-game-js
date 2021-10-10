@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-// import Papa from 'papaparse'
+import Button from 'react-bootstrap/Button';
 
 import IndividualCard from './IndividualCard';
 import Score from './Score';
@@ -37,6 +37,7 @@ function AllCards () {
     }, [level])
     
     const updateScore = (code) => {  
+        
         if (chosen.has(code)) {            
             resetScore()
         } else {
@@ -48,7 +49,9 @@ function AllCards () {
             } else {
                setScore(score + 1);
             }
+            determineFlags()
         }
+        console.log(chosen)
     }
 
 
@@ -56,6 +59,7 @@ function AllCards () {
         setChosen(new Set());
         setLevel(4);
         setScore(0);
+        determineFlags()
     }
 
     const determineFlags = () => {
@@ -83,16 +87,19 @@ function AllCards () {
     });
 
     return (
-        <div>
+        <div >            
             <Score score={score}/>            
             <div class="container" >
+            {/* <div> */}
                 {cardItems}            
             </div>
-            <br />
-            <button onClick={resetScore}> Reset Score</button>
-                
+            <br />        
+            <div className="button-container"> 
+                <Button onClick={resetScore}> Reset Score</Button>
+            </div>
             
         </div>
+        
     )
 };
  

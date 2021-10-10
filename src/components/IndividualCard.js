@@ -13,16 +13,16 @@ function IndividualCard (props) {
 
 
     return (
-        <div>
+        <div className="card-container">
             {/* React-Bootstrap template for Card - TODO */}
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={`https://flagcdn.com/112x84/${props.code}.png`} />
             <Card.Body>
                 <Card.Title>{props.country_name}</Card.Title>
                 
-                {/* <Button variant="primary">Go somewhere</Button> */}
+                {/* <Button onClick={updateCardScore}>Pick this flag!</Button> */}
                 <form onSubmit={updateCardScore} >
-                    <input type="submit" value="Pick this flag!" />
+                    <Button type="submit" > Pick this flag! </Button>
                 </form>
             </Card.Body>
             </Card>

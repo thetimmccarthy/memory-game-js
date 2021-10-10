@@ -11,7 +11,7 @@ function Score(props) {
     })
 
     return (
-        <div>
+        <div className="score-container">
             <h3>
                 Current Score: {props.score}
             </h3>
