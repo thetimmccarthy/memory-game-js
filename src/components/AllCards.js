@@ -51,34 +51,42 @@ function AllCards () {
             }
             determineFlags()
         }
-        console.log(chosen)
+
     }
 
 
     const resetScore = () => {        
+        console.log('update chosen');
         setChosen(new Set());
+        console.log('update level');
         setLevel(4);
+        console.log('update score')
         setScore(0);
+        console.log('pick flags')
         determineFlags()
     }
 
     const determineFlags = () => {
+        console.log(level)
         let i = 0;                
-        const cards_this_round = new Set()        
+        const cards_this_round = new Set() 
+        const cards_array = []       
         let card;
+        let prop;
         while (i < level) {            
             do {
                 let keys = Object.keys(countries);
-                let prop = keys[Math.floor(Math.random() * keys.length)]
+                prop = keys[Math.floor(Math.random() * keys.length)]
                 card = {
                     country: countries[prop],
                     code: prop
                 }                
-                cards_this_round.add(card);                
-            } while(!cards_this_round.has(card));                        
+            } while(!cards_this_round.has(prop));                        
+            cards_this_round.add(prop);                
+            cards_array.push(card)
             i += 1
         }
-        let cards_array = Array.from(cards_this_round)
+        
         setCards(cards_array);        
     }
 
